@@ -1,10 +1,10 @@
 clear; close all; clc;
+
 instrreset
 oldobjs = instrfind;
 if (~isempty(oldobjs))
        fclose(oldobjs);   
     delete(oldobjs);
-
 end
 clear oldobjs;
 fieldFox = visa('agilent', 'TCPIP0::192.168.0.1::inst0::INSTR');
@@ -31,8 +31,3 @@ fprintf(fieldFox, 'SYST:ERR?');
 fclose(fieldFox);
 delete(fieldFox);
 clear fieldFox;
-importedImage = imread('C:\Temp\TransferedTestImage.png')
-image(importedImage)
-['Initial error check results: ', errIdentifyStart]
-['Instrument identified as: ', idn]
-['Final error check results: ', errIdentifyStop]
